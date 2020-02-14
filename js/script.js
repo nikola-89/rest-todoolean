@@ -31,6 +31,7 @@ $(document).ready(function() {
     $(document).on('click', '.btn-add button', function() {
         if ($('.item').last().attr('data-id') != '#') {
             print(empty, null);
+            $('.btn-update button').last().text('Inserisci');
             $('.input').last().focus();
         } else {
             $('.item').last().effect('highlight', 'slow');
