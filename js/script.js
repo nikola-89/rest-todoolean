@@ -29,8 +29,13 @@ $(document).ready(function() {
         }
     });
     $(document).on('click', '.btn-add button', function() {
-        print(empty, null);
-        $('.input').last().focus();
+        if ($('.item').last().attr('data-id') != '#') {
+            print(empty, null);
+            $('.input').last().focus();
+        } else {
+            $('.item').last().effect('highlight', 'slow');
+            $('.input').last().focus();
+        }
     });
 });
 // ***************************
