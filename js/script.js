@@ -1,5 +1,8 @@
 $(document).ready(function() {
-    var memory = [];
+    var empty = [{
+        id : '#',
+        text : ''
+    }];
     // ***************************
     refresh();
     // ***************************
@@ -12,6 +15,10 @@ $(document).ready(function() {
         var id = $(this).attr('data-id');
         var text = null;
         request('DELETE', text, id);
+    });
+    $(document).on('click', '.btn-add button', function() {
+        print(empty, null);
+        $('.input').last().focus();
     });
 });
 // ***************************
