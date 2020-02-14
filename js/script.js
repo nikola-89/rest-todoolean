@@ -9,7 +9,11 @@ $(document).ready(function() {
     $(document).on('click', '.btn-update button', function() {
         var id = $(this).attr('data-id');
         var text = $('.input[data-id="' + id + '"]').val();
-        request('PUT', text, id);
+        if (id == '#') {
+            request('POST', text);
+        } else {
+            request('PUT', text, id);
+        }
     });
     $(document).on('click', '.btn-delete button', function() {
         var id = $(this).attr('data-id');
@@ -49,15 +53,14 @@ function typeUrl(method, id) {
 }
 // ***************************
 function param(method, text) {
-    switch (method) {
-        case 'PUT':
-            return {text : text};
-        case 'GET' || 'DELETE':
-            return;
+    if (method == 'PUT' || method == 'POST') {
+        return {text : text};
     }
+    return;
 }
 // ***************************
 function refresh() {
+    $('.item').remove();
     request('GET');
 }
 // ***************************
