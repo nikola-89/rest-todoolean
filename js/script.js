@@ -9,15 +9,24 @@ $(document).ready(function() {
     $(document).on('click', '.btn-update button', function() {
         var id = $(this).attr('data-id');
         var text = $('.input[data-id="' + id + '"]').val();
-        if (id == '#') {
-            request('POST', text);
+        if (text.length != 0) {
+            if (id == '#') {
+                request('POST', text);
+            } else {
+                request('PUT', text, id);
+            }
         } else {
-            request('PUT', text, id);
+            refresh();
         }
     });
     $(document).on('click', '.btn-delete button', function() {
         var id = $(this).attr('data-id');
-        request('DELETE', null, id);
+        var text = $('.input[data-id="' + id + '"]').val();
+        if (text.length != 0) {
+            request('DELETE', null, id);
+        } else {
+            refresh();
+        }
     });
     $(document).on('click', '.btn-add button', function() {
         print(empty, null);
