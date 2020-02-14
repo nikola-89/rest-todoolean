@@ -73,7 +73,7 @@ function print(data, method) {
                 })
             );
         }
-    if (method == 'DELETE') {
+    if (method == 'DELETE' || method == 'POST') {
         refresh();
     }
 }
