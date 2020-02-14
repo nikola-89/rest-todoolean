@@ -17,8 +17,7 @@ $(document).ready(function() {
     });
     $(document).on('click', '.btn-delete button', function() {
         var id = $(this).attr('data-id');
-        var text = null;
-        request('DELETE', text, id);
+        request('DELETE', null, id);
     });
     $(document).on('click', '.btn-add button', function() {
         print(empty, null);
